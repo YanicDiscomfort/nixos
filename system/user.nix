@@ -8,6 +8,19 @@
       git
       yazi
       neovim
+      zsh
+      oh-my-zsh
     ];
+    shell = pkgs.zsh;
+  };
+
+  programs.zsh = {
+    enable = true;
+
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" ];
+    };
   };
 }
