@@ -1,15 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  # ---------------------------------
-  # Benutzerdefinierte Pakete
-  # ---------------------------------
-  systemPackages = with pkgs; [
-    neovim
-    wget
-  ];
-in
-
 {
   # ---------------------------------
   # Imports
@@ -17,6 +7,7 @@ in
   imports =
     [
       ../hardware-configuration.nix
+      ./service.nix
       ./user.nix
     ];
 
@@ -28,13 +19,13 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # ---------------------------------
-  # Netzwerk
+  # Network
   # ---------------------------------
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # ---------------------------------
-  # Locale / Zeit
+  # Locale / Time
   # ---------------------------------
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "de_DE.UTF-8";
@@ -47,31 +38,5 @@ in
   # Nix
   # ---------------------------------
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # ---------------------------------
-  # Services
-  # ---------------------------------
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  services.libinput.enable = true;
-
-  # ---------------------------------
-  # Systempakete & Programme
-  # ---------------------------------
-  environment.systemPackages = systemPackages;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-  };
-
-  # ---------------------------------
-  # System-Kompatibilität
-  # ---------------------------------
   system.stateVersion = "25.11";
 }
