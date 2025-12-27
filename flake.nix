@@ -16,6 +16,10 @@
   in
   {
     nixosConfigurations = {
+      tty = nixpkgs.lib.nixosSystem {
+        modules = [ ./system ];
+      }; 
+
       plasma = nixpkgs.lib.nixosSystem {
         modules = [ ./hosts/plasma ];
       };   
