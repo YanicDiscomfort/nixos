@@ -11,6 +11,7 @@
       neovim
       zsh
       oh-my-zsh
+      vesktop
     ];
     shell = pkgs.zsh;
   };
