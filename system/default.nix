@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   # ---------------------------------
@@ -45,7 +45,7 @@
   # Home-Manager
   # ---------------------------------
   home-manager = {
-    specialArgs = {inherit inputs};
+    extraSpecialArgs = {inherit inputs; };
     users = {
       "yanic" = import ./home.nix;
     };
