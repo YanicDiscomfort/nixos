@@ -6,6 +6,7 @@
     extraGroups = [ "wheel" "networkmanager" ];
     packages = with pkgs; [
       git
+      gh
       yazi
       neovim
       zsh
