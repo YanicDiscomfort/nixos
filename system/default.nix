@@ -9,6 +9,7 @@
       ../hardware-configuration.nix
       ./service.nix
       ./user.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # ---------------------------------
@@ -39,4 +40,14 @@
   # ---------------------------------
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "25.11";
+
+  # ---------------------------------
+  # Home-Manager
+  # ---------------------------------
+  home-manager = {
+    specialArgs = {inherit inputs};
+    users = {
+      "yanic" = import ./home.nix;
+    };
+  };
 }

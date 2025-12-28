@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-	  home-manageri = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -12,16 +12,23 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    modules = [ inputs.home-manager.nixosModules.default ];
   in
   {
     nixosConfigurations = {
       tty = nixpkgs.lib.nixosSystem {
-        modules = [ ./system ];
+        specialArgs = { inherit inputs; };
+        modules = [ 
+          ./system 
+          inputs.home-manager.nixosModules.default
+        ];
       }; 
 
       plasma = nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts/plasma ];
+        specialArgs = { inherit inputs; };
+        modules = [ 
+          ./hosts/plasma 
+          inputs.home-manager.nixosModules.default
+        ];
       };   
     };
   };
