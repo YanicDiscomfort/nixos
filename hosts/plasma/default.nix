@@ -4,9 +4,9 @@
   imports = [ ../../system ];
 
   services = {
-    desktopManager.plasma6.enable = true;
     displayManager.sddm.enable = true;
     displayManager.sddm.wayland.enable = true;
+    desktopManager.plasma6.enable = true;
 
     xrdp = {
       defaultWindowManager = "startplasma-wayland";
@@ -38,7 +38,8 @@
     hardinfo2 # System information and benchmarks for Linux systems
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
-
+    
+    vesktop
     firefox
   ];
 
