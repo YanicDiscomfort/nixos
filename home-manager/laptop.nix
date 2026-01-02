@@ -4,12 +4,15 @@
   wayland.windowManager.sway = {
     enable = true;
     
-    extraConfig = ''
-      input * {
-        xkb_layout "de"
-      }
-    '';
-    config.terminal = "kitty";
+    config = {
+      input = {
+        "*" = {
+          xkb_layout = "de";
+	};
+      };
+      modifier = "Mod4";
+      terminal = "kitty";
+    };
   };
 
   programs.kitty = {
