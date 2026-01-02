@@ -23,10 +23,10 @@
         ];
       }; 
 
-      plasma = nixpkgs.lib.nixosSystem {
+      laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 
-          ./hosts/plasma 
+          ./hosts/laptop 
           inputs.home-manager.nixosModules.default
         ];
       };   
