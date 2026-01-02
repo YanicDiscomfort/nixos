@@ -10,11 +10,6 @@
     powerOnBoot = true;
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-  };
-
   # Login manager: lydm
   services.displayManager.ly = {
     enable = true;
@@ -31,7 +26,6 @@
     extraPackages = with pkgs; [
       swaybg
       swaylock
-      swayidle
       grim
       slurp
       wl-clipboard
@@ -49,11 +43,6 @@
       xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
     ];
-  };
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
   };
 
   fonts.packages = with pkgs; [
