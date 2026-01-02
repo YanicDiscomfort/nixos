@@ -3,9 +3,6 @@
 {
   imports = [ ../../system ];
 
-  services.xserver.xkb.layout = "de";
-  console.keyMap = "de";
-  
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
