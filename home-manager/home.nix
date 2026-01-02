@@ -21,7 +21,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-
+    pkgs.firefox
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -69,6 +69,23 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  wayland.windowManager.sway = {
+    enable = true;
+    config.terminal = "kitty";
+  };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "FiraCode Nerd Font";
+      size = 12;
+    };
+    settings = {
+      enable_audio_bell = "no";
+      confirm_os_window_close = 0;
+    };
   };
 
   # Let Home Manager install and manage itself.
