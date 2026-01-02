@@ -11,7 +11,6 @@
       neovim
       zsh
       oh-my-zsh
-      home-manager
     ];
     shell = pkgs.zsh;
   };

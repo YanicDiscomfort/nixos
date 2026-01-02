@@ -31,18 +31,7 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "de_DE.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
     keyMap = "en";
-  };
-
-  # ---------------------------------
-  # Home-Manager
-  # ---------------------------------
-  home-manager = {
-    extraSpecialArgs = {inherit inputs; };
-    users = {
-      "yanic" = import ../home-manager/home.nix ;
-    };
   };
 
   # ---------------------------------

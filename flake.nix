@@ -15,14 +15,6 @@
   in
   {
     nixosConfigurations = {
-      tty = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [ 
-          ./system 
-          inputs.home-manager.nixosModules.default
-        ];
-      }; 
-
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 

@@ -6,6 +6,14 @@
   home.username = "yanic";
   home.homeDirectory = "/home/yanic";
 
+  imports = [ ./laptop.nix ];
+
+  # imports = [
+  #   (if homeConfig == "sway" then ./sway.nix
+  #    else if homeConfig == "plasma" then ./plasma.nix
+  #    else ./default.nix)
+  # ];
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -69,23 +77,6 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-  };
-
-  wayland.windowManager.sway = {
-    enable = true;
-    config.terminal = "kitty";
-  };
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 12;
-    };
-    settings = {
-      enable_audio_bell = "no";
-      confirm_os_window_close = 0;
-    };
   };
 
   # Let Home Manager install and manage itself.

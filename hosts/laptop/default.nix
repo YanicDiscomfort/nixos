@@ -15,7 +15,6 @@
       default_session = "sway";
     };
   };
-  services.xserver.displayManager.defaultSession = "sway";
 
   programs.sway = {
     enable = true;
@@ -48,5 +47,10 @@
     noto-fonts-color-emoji
     fira-code
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; homeConfig = "laptop"; };
+    users."yanic" = import ../home-manager/home.nix;
+  };
 }
 
