@@ -47,12 +47,12 @@
     vlc
     firefox
     vesktop
-        
+
     # Archives
     file-roller
     p7zip
     unzip
-    unrar
+    unrar-free
     
     # System utilities
     networkmanagerapplet
