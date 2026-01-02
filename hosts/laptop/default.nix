@@ -16,12 +16,16 @@
     
     # Display Manager
     displayManager = {
-      lightdm = {
-        enable = true;
-        greeters.slick.enable = true;
-      };
+      lightdm.enable = true;
+      defaultSession = "xfce";
     };
   };
+
+  # Enable dbus (required for XFCE)
+  services.dbus.enable = true;
+
+  # Enable polkit (required for system authentication dialogs)
+  security.polkit.enable = true;
 
   # XFCE-related packages
   environment.systemPackages = with pkgs; [
