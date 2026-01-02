@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs ... }:
 
 {
-  imports = [ ../../system ];
+  imports = [ 
+    ../../system
+    inputs.home-manager.nixosModules.default 
+    ];
 
   hardware.bluetooth = {
     enable = true;
@@ -50,7 +53,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; homeConfig = "laptop"; };
-    users."yanic" = import ../home-manager/home.nix;
+    users."yanic" = import ../../home-manager/home.nix;
   };
 }
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # ---------------------------------
@@ -9,7 +9,6 @@
       ../hardware-configuration.nix
       ./service.nix
       ./user.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   # ---------------------------------
