@@ -32,14 +32,8 @@
   i18n.defaultLocale = "de_DE.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "de";
+    keyMap = "en";
   };
-
-  # ---------------------------------
-  # Nix
-  # ---------------------------------
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "25.11";
 
   # ---------------------------------
   # Home-Manager
@@ -47,7 +41,13 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
     users = {
-      "yanic" = import ./home.nix;
+      "yanic" = import ../home-manager;
     };
   };
+
+  # ---------------------------------
+  # Nix
+  # ---------------------------------
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system.stateVersion = "25.11";
 }
