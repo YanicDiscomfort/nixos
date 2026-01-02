@@ -3,6 +3,12 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    
+    extraConfig = ''
+      input * {
+        xkb_layout "de"
+      }
+    '';
     config.terminal = "kitty";
   };
 
